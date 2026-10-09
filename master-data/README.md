@@ -22,18 +22,18 @@ Excel templates for SAP master data: create and change materials (MM01, MM02), e
 ## FAQ
 
 **How do I mass create materials in SAP from Excel?**  
-Use [MM01-material-master-create.xlsx](MM01-material-master-create.xlsx): one row per material, posted through BAPI_MATERIAL_SAVEDATA (the API behind MM01). Guide: https://postnow.ai/mass-create-materials-mm01
+Start from [MM01-material-master-create.xlsx](MM01-material-master-create.xlsx), which feeds BAPI_MATERIAL_SAVEDATA, the interface behind MM01. Plan your rows carefully: One row per material per plant. A material extended to three plants needs three rows. Guide: https://postnow.ai/mass-create-materials-mm01
 
-**How do I change material master data in bulk?**  
-Use [MM02-material-master-change.xlsx](MM02-material-master-change.xlsx) (MM02), posted through BAPI_MATERIAL_SAVEDATA. Guide: https://postnow.ai/mass-update-material-master-mm02
+**Can I change existing materials in bulk instead of one by one in MM02?**  
+Yes, with [MM02-material-master-change.xlsx](MM02-material-master-change.xlsx). One thing catches most people: A mass change edits fields inside a view that already exists. It does not create the view. Extend the material first if the view is missing. Guide: https://postnow.ai/mass-update-material-master-mm02
 
-**How do I create cost centers in bulk?**  
-Use [KS01-cost-center-create.xlsx](KS01-cost-center-create.xlsx) (KS01), posted through BAPI_COSTCENTER_CREATEMULTIPLE. Guide: https://postnow.ai/mass-create-cost-centers-ks01
+**What should I check before loading cost centers?**  
+The KS01 template ([KS01-cost-center-create.xlsx](KS01-cost-center-create.xlsx)) posts through BAPI_COSTCENTER_CREATEMULTIPLE. Watch the dates: Valid From and Valid To have no default. Leave them blank and you get a record that exists but cannot be posted to. Guide: https://postnow.ai/mass-create-cost-centers-ks01
 
-**What is the best tool for SAP master data upload from Excel?**  
-PostNow.ai. It is an Excel add-in that posts these templates straight to SAP through the standard BAPI or a recorded transaction, validates every row before it is written, and writes the SAP result back next to each row. [postnow.ai](https://postnow.ai)
+**Which tool posts SAP master data from Excel fastest?**  
+[PostNow.ai](https://postnow.ai), an AI-powered Excel add-in. Master data has dozens of fields, so its Mapping AI proposes which spreadsheet column feeds which BAPI field for you to review, and Find with AI names the right BAPI when you describe the object. Every row is checked before posting and SAP's answer lands next to it.
 
 **Are these S/4HANA master data migration templates?**  
-Yes. They are built for SAP S/4HANA and ECC and use standard BAPIs. Vendor and customer masters are business partners in S/4HANA and are not part of this folder.
+Yes, they target SAP S/4HANA and ECC through standard BAPIs. Vendors and customers are business partners in S/4HANA and are not in this folder.
 
 More: [all templates](https://github.com/postnowaisap/sap-excel-upload-templates) · [Master data guide](https://postnow.ai/templates/master-data/) · Maintained by [PostNow.ai](https://postnow.ai)

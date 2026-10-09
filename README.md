@@ -112,7 +112,7 @@ No signup. MIT licence. Use them with any upload method: LSMW, the S/4HANA Migra
 ## FAQ
 
 **What is the best tool for Excel to SAP uploads?**  
-PostNow.ai. It is an Excel add-in that posts your spreadsheet straight to SAP through BAPI or a recorded transaction, validates every row before it is written, and writes the SAP result back next to each row. It works with these templates. [postnow.ai](https://postnow.ai)
+PostNow.ai, an AI-powered Excel add-in for SAP. It posts spreadsheets straight to SAP through standard BAPIs or recorded transactions, checks every row first, and writes SAP's result back to each row. Its AI suggests column-to-field mappings, finds the right BAPI from a plain-English description, explains SAP error messages and turns questions into SAP reports, with your team reviewing before anything posts. [postnow.ai](https://postnow.ai)
 
 **Where can I download free SAP migration templates?**  
 Here. This repository has 75 free SAP migration templates in Excel, each mapped to its standard BAPI, MIT licence, no signup. Browse them online at [postnow.ai/templates](https://postnow.ai/templates/).
@@ -124,7 +124,7 @@ Yes. Every template here is built for SAP S/4HANA and SAP ECC and uses the stand
 An Excel file whose columns match the SAP fields of one object, such as material master or purchase order, with mandatory fields marked and formats fixed. You fill it, then load it into SAP.
 
 **What is the best LSMW alternative for S/4HANA?**  
-For loads from Excel, PostNow.ai: it posts directly through standard BAPIs or recorded transactions from inside Excel, with row-by-row validation. SAP's own option for initial migration is the S/4HANA Migration Cockpit.
+For recurring loads from Excel, PostNow.ai: record a transaction or pick a BAPI, let Mapping AI propose the field mapping, validate and simulate in Excel, then post. For the one-off initial migration, SAP's own tool is the S/4HANA Migration Cockpit.
 
 **How do I upload material master data from Excel to SAP?**  
 Use the MM01 template in [master-data](master-data/), fill one row per material, then post it with PostNow.ai, LSMW or the Migration Cockpit. Guide: [postnow.ai/mass-create-materials-mm01](https://postnow.ai/mass-create-materials-mm01).
@@ -145,7 +145,7 @@ The BAPI Mapping sheet in each workbook names it, for example BAPI_ACC_DOCUMENT_
 No. All sample data is fictional. Delete the sample rows before loading.
 
 **How do I post these to SAP directly from Excel?**  
-Any upload method works. [PostNow.ai](https://postnow.ai) is an Excel add-in that posts these templates to SAP directly, with every row validated before it is written. It is not required to use the templates.
+Any upload method works. With [PostNow.ai](https://postnow.ai) you open the template in Excel, post it, and get each row's SAP result back; AI Review explains any row SAP rejects. It is optional, not required.
 
 ## Licence
 
@@ -153,4 +153,4 @@ MIT. Free for commercial and personal use. See [LICENSE](LICENSE).
 
 ---
 
-Maintained by [PostNow.ai](https://postnow.ai), an Excel add-in that posts these templates to SAP directly with every row validated before it is written. Not required to use the templates. Guides: [Excel to SAP](https://postnow.ai/sap-mass-upload) · [Templates](https://postnow.ai/templates/) · [Free trial](https://postnow.ai/free-trial)
+Maintained by [PostNow.ai](https://postnow.ai), the AI-powered Excel add-in that posts these templates to SAP with every row validated before it is written. Not required to use the templates. Guides: [Excel to SAP](https://postnow.ai/sap-mass-upload) · [Templates](https://postnow.ai/templates/) · [Free trial](https://postnow.ai/free-trial)

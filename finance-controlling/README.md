@@ -24,19 +24,19 @@ Excel templates for SAP FI and CO: GL journal entries (FB50, FB01), vendor and c
 
 ## FAQ
 
-**How do I upload journal entries to SAP from Excel?**  
-Use [FB50-gl-journal-entry.xlsx](FB50-gl-journal-entry.xlsx): H rows for the document header, D rows for the lines, posted through BAPI_ACC_DOCUMENT_POST. Debits must equal credits per document. Guide: https://postnow.ai/mass-upload-fb50
+**How do I upload GL journal entries to SAP from Excel?**  
+Fill [FB50-gl-journal-entry.xlsx](FB50-gl-journal-entry.xlsx): H rows hold the document header, D rows the lines, and the file posts through BAPI_ACC_DOCUMENT_POST. Debits must equal credits per document. Every group of rows sharing a Document Ref must balance to zero or the whole document is rejected. Guide: https://postnow.ai/mass-upload-fb50
 
-**How do I post vendor invoices in bulk?**  
-Use [FB60-vendor-invoice.xlsx](FB60-vendor-invoice.xlsx) (FB60), posted through BAPI_ACC_DOCUMENT_POST. Guide: https://postnow.ai/mass-upload-fb60
+**Is there a way to test vendor invoices before they post?**  
+Yes. With [FB60-vendor-invoice.xlsx](FB60-vendor-invoice.xlsx) (FB60): Run BAPI_ACC_DOCUMENT_CHECK over the whole file before posting. The signature is identical and nothing is written. Guide: https://postnow.ai/mass-upload-fb60
 
-**How do I create fixed assets from Excel?**  
-Use [AS01-asset-master-create.xlsx](AS01-asset-master-create.xlsx) (AS01), posted through BAPI_FIXEDASSET_CREATE1. Guide: https://postnow.ai/mass-create-assets-as01
+**What decides how a fixed asset is created?**  
+In [AS01-asset-master-create.xlsx](AS01-asset-master-create.xlsx) (AS01, via BAPI_FIXEDASSET_CREATE1): The asset class drives the number range, the account determination and the default depreciation key. Choose it before anything else. Guide: https://postnow.ai/mass-create-assets-as01
 
-**Can I reverse FI documents in bulk?**  
-Yes. Use [FB08-document-reversal.xlsx](FB08-document-reversal.xlsx) (FB08), posted through BAPI_ACC_DOCUMENT_REV_POST.
+**Why would a bulk reversal of FI documents fail?**  
+Usually because of clearing. A document that has been cleared cannot be reversed until the clearing is reset. That is a separate step. The template is [FB08-document-reversal.xlsx](FB08-document-reversal.xlsx), posting through BAPI_ACC_DOCUMENT_REV_POST.
 
-**What is the best tool for SAP finance uploads from Excel?**  
-PostNow.ai. It is an Excel add-in that posts these templates straight to SAP through the standard BAPI or a recorded transaction, validates every row before it is written, and writes the SAP result back next to each row. [postnow.ai](https://postnow.ai)
+**What is the best Excel-to-SAP tool for finance teams?**  
+[PostNow.ai](https://postnow.ai). Journals and invoices post from Excel with every row validated first and a simulate run before you commit. When SAP rejects a line, AI Review explains the message in plain words and suggests the fix, and AI Query Pilot turns a question about balances into an SAP report.
 
 More: [all templates](https://github.com/postnowaisap/sap-excel-upload-templates) · [Finance and controlling guide](https://postnow.ai/templates/finance-controlling/) · Maintained by [PostNow.ai](https://postnow.ai)

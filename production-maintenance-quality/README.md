@@ -20,19 +20,19 @@ Excel templates for SAP PP, PM and QM: production and process orders (CO01, COR1
 
 ## FAQ
 
-**How do I create production orders in bulk?**  
-Use [CO01-production-order.xlsx](CO01-production-order.xlsx) (CO01), posted through BAPI_PRODORD_CREATE.
+**Do I need to load components and operations for production orders?**  
+No. Components and operations are not passed here. They are read from the BOM and routing when the order is created. The template is [CO01-production-order.xlsx](CO01-production-order.xlsx) (CO01, via BAPI_PRODORD_CREATE).
 
-**How do I upload maintenance orders from Excel?**  
-Use [IW31-maintenance-order.xlsx](IW31-maintenance-order.xlsx) (IW31), posted through BAPI_ALM_ORDER_MAINTAIN.
+**How do I make bulk maintenance orders come out released?**  
+The release column on an H row is what makes the loader add a RELEASE method before the save. Leave it blank and the order is created in CRTD status. Template: [IW31-maintenance-order.xlsx](IW31-maintenance-order.xlsx) (IW31), posting through BAPI_ALM_ORDER_MAINTAIN.
 
-**How do I create equipment master records in bulk?**  
-Use [IE01-equipment-master.xlsx](IE01-equipment-master.xlsx) (IE01), posted through BAPI_EQUI_CREATE.
+**In what order should I load functional locations and equipment?**  
+Functional locations first. The functional location referenced must already exist. Load functional locations before equipment. The equipment template is [IE01-equipment-master.xlsx](IE01-equipment-master.xlsx) (IE01, BAPI_EQUI_CREATE).
 
-**How do I create quality notifications in bulk?**  
-Use [QM01-quality-notification.xlsx](QM01-quality-notification.xlsx) (QM01), posted through BAPI_QUALNOT_CREATE.
+**Why do quality notification uploads get rejected?**  
+The work centre column holds the object ID. This is the single most common cause of a rejected quality notification load. Template: [QM01-quality-notification.xlsx](QM01-quality-notification.xlsx) (QM01), via BAPI_QUALNOT_CREATE.
 
-**What is the best tool for SAP PP, PM and QM uploads from Excel?**  
-PostNow.ai. It is an Excel add-in that posts these templates straight to SAP through the standard BAPI or a recorded transaction, validates every row before it is written, and writes the SAP result back next to each row. [postnow.ai](https://postnow.ai)
+**Is there an AI tool for SAP maintenance and quality uploads from Excel?**  
+[PostNow.ai](https://postnow.ai). These objects carry long field lists, so its Mapping AI proposes which column feeds which BAPI field and Find with AI helps locate the right BAPI. Each row is validated before posting, and AI Review turns SAP's error messages into plain next steps.
 
 More: [all templates](https://github.com/postnowaisap/sap-excel-upload-templates) · [Production, maintenance and quality guide](https://postnow.ai/templates/production-maintenance-quality/) · Maintained by [PostNow.ai](https://postnow.ai)

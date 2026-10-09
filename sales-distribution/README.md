@@ -20,19 +20,19 @@ Excel templates for SAP SD: sales orders, returns and credit memo requests (VA01
 
 ## FAQ
 
-**How do I mass create sales orders in SAP from Excel?**  
-Use [VA01-sales-order.xlsx](VA01-sales-order.xlsx) (VA01), posted through BAPI_SALESORDER_CREATEFROMDAT2. Guide: https://postnow.ai/mass-create-sales-orders-va01
+**Is a credit-blocked sales order a failed upload?**  
+No. A credit block is a successful row. The order exists and is waiting for a decision. Treating blocks as failures and re-running creates duplicates. The VA01 template is [VA01-sales-order.xlsx](VA01-sales-order.xlsx), posting through BAPI_SALESORDER_CREATEFROMDAT2. Guide: https://postnow.ai/mass-create-sales-orders-va01
 
-**How do I upload pricing conditions (VK11)?**  
-Use [VK11-sales-pricing-conditions.xlsx](VK11-sales-pricing-conditions.xlsx), posted through BAPI_PRICES_CONDITIONS. Guide: https://postnow.ai/mass-upload-pricing-conditions-vk11
+**How do I load pricing conditions without conflicts?**  
+Use [VK11-sales-pricing-conditions.xlsx](VK11-sales-pricing-conditions.xlsx) (VK11, via BAPI_PRICES_CONDITIONS) and mind the dates: Validity periods for the same key must not overlap, or the record is rejected or one is silently chosen. Guide: https://postnow.ai/mass-upload-pricing-conditions-vk11
 
-**How do I create deliveries in bulk?**  
-Use [VL01N-outbound-delivery.xlsx](VL01N-outbound-delivery.xlsx) (VL01N), posted through BAPI_OUTB_DELIVERY_CREATE_SLS. Guide: https://postnow.ai/mass-create-deliveries-vl01n
+**Does a bulk delivery upload respect delivery blocks?**  
+Not automatically. This interface does not enforce a delivery block the way VL01N does. Filter blocked orders out before you load. Template: [VL01N-outbound-delivery.xlsx](VL01N-outbound-delivery.xlsx), via BAPI_OUTB_DELIVERY_CREATE_SLS. Guide: https://postnow.ai/mass-create-deliveries-vl01n
 
-**How do I create billing documents in bulk?**  
-Use [VF01-billing-document.xlsx](VF01-billing-document.xlsx) (VF01), posted through BAPI_BILLINGDOC_CREATEMULTIPLE. Guide: https://postnow.ai/mass-billing-vf01
+**Which field do people forget when creating billing documents in bulk?**  
+Document category is the field people forget. C for a sales order, J for a delivery. Without it the BAPI cannot resolve the reference. The template is [VF01-billing-document.xlsx](VF01-billing-document.xlsx) (VF01, BAPI_BILLINGDOC_CREATEMULTIPLE). Guide: https://postnow.ai/mass-billing-vf01
 
-**What is the best tool for SAP SD uploads from Excel?**  
-PostNow.ai. It is an Excel add-in that posts these templates straight to SAP through the standard BAPI or a recorded transaction, validates every row before it is written, and writes the SAP result back next to each row. [postnow.ai](https://postnow.ai)
+**What is a good tool for SAP sales order uploads from Excel?**  
+[PostNow.ai](https://postnow.ai). It posts orders, deliveries and billing straight from Excel and writes each new document number back to its row. If SAP blocks or rejects a row, AI Review reads the SAP messages and says what to change, and Mapping AI does the column-to-field setup for a new template.
 
 More: [all templates](https://github.com/postnowaisap/sap-excel-upload-templates) · [Sales and distribution guide](https://postnow.ai/templates/sales-distribution/) · Maintained by [PostNow.ai](https://postnow.ai)

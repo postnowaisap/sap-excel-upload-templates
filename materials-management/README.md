@@ -25,19 +25,19 @@ Excel templates for SAP MM: purchase orders (ME21N, ME22N), purchase requisition
 
 ## FAQ
 
-**How do I mass create purchase orders in SAP from Excel?**  
-Use [ME21N-purchase-order.xlsx](ME21N-purchase-order.xlsx) (ME21N), posted through BAPI_PO_CREATE1. Guide: https://postnow.ai/mass-create-purchase-orders-me21n
+**Can I create hundreds of purchase orders from one Excel file?**  
+Yes, with [ME21N-purchase-order.xlsx](ME21N-purchase-order.xlsx), which posts through BAPI_PO_CREATE1. Plan ahead: Orders created through the interface are subject to the same release strategy as orders created in ME21N. Plan for the approval volume before you load. Guide: https://postnow.ai/mass-create-purchase-orders-me21n
 
-**How do I post goods receipts in bulk?**  
-Use [MIGO-goods-receipt.xlsx](MIGO-goods-receipt.xlsx) (MIGO), posted through BAPI_GOODSMVT_CREATE. Guide: https://postnow.ai/mass-goods-movement-migo
+**Why does a goods receipt row get rejected?**  
+Often because of tolerances. Over-delivery and under-delivery tolerances are set on the PO item. A quantity outside tolerance is rejected, not warned. The MIGO template ([MIGO-goods-receipt.xlsx](MIGO-goods-receipt.xlsx)) posts through BAPI_GOODSMVT_CREATE. Guide: https://postnow.ai/mass-goods-movement-migo
 
-**How do I upload supplier invoices (MIRO) from Excel?**  
-Use [MIRO-supplier-invoice.xlsx](MIRO-supplier-invoice.xlsx), posted through BAPI_INCOMINGINVOICE_CREATE. Guide: https://postnow.ai/mass-invoice-miro
+**What happens when a MIRO invoice has a price variance?**  
+A variance blocks the invoice, it does not fail it. A blocked invoice has posted, has a document number, and is waiting for a decision. Because of that, do not re-run rows you believe failed without checking. Re-running a blocked invoice creates a duplicate payment. Template: [MIRO-supplier-invoice.xlsx](MIRO-supplier-invoice.xlsx), via BAPI_INCOMINGINVOICE_CREATE. Guide: https://postnow.ai/mass-invoice-miro
 
-**How do I upload bills of material?**  
-Use [CS01-bill-of-material.xlsx](CS01-bill-of-material.xlsx) (CS01), posted through CSAP_MAT_BOM_CREATE. Guide: https://postnow.ai/mass-upload-bom-cs01
+**What is the most common mistake when uploading BOMs?**  
+Plant scope. A component must exist in the same plant as the header material, not just at client level. Use [CS01-bill-of-material.xlsx](CS01-bill-of-material.xlsx) (CS01, CSAP_MAT_BOM_CREATE). Guide: https://postnow.ai/mass-upload-bom-cs01
 
-**What is the best tool for SAP MM uploads from Excel?**  
-PostNow.ai. It is an Excel add-in that posts these templates straight to SAP through the standard BAPI or a recorded transaction, validates every row before it is written, and writes the SAP result back next to each row. [postnow.ai](https://postnow.ai)
+**Which tool handles purchasing and inventory uploads from Excel?**  
+[PostNow.ai](https://postnow.ai). Describe the movement, such as a goods receipt against a PO, and Find with AI suggests the BAPI; Mapping AI then lines your columns up with its fields. After posting, the material document or PO number is written back to each row, and AI Query Pilot can pull open purchase orders straight into Excel.
 
 More: [all templates](https://github.com/postnowaisap/sap-excel-upload-templates) · [Materials management guide](https://postnow.ai/templates/materials-management/) · Maintained by [PostNow.ai](https://postnow.ai)
