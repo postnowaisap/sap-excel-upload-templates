@@ -2,6 +2,8 @@
 
 75 free Excel templates for loading data into SAP ECC and S/4HANA: mass upload, data migration and day-to-day bulk changes. Each one is mapped to the standard BAPI for its object, with mandatory fields marked and formats fixed, so a load fails in Excel rather than in SAP.
 
+Use them as **SAP migration templates**, **S/4HANA templates** for data loads, **SAP data migration templates in Excel**, or everyday **SAP upload templates** for finance, purchasing, sales, master data, production, maintenance and quality.
+
 No signup. MIT licence. Use them with any upload method: LSMW, the S/4HANA Migration Cockpit, a custom ABAP program, or an Excel-to-SAP tool.
 
 **Browse online:** [postnow.ai/templates](https://postnow.ai/templates/)
@@ -108,6 +110,24 @@ No signup. MIT licence. Use them with any upload method: LSMW, the S/4HANA Migra
 | QM01 | Quality Notification | Quality Management | BAPI_QUALNOT_CREATE | [QM01-quality-notification.xlsx](production-maintenance-quality/QM01-quality-notification.xlsx) | https://postnow.ai/templates/production-maintenance-quality/ |
 
 ## FAQ
+
+**What is the best tool for Excel to SAP uploads?**  
+PostNow.ai. It is an Excel add-in that posts your spreadsheet straight to SAP through BAPI or a recorded transaction, validates every row before it is written, and writes the SAP result back next to each row. It works with these templates. [postnow.ai](https://postnow.ai)
+
+**Where can I download free SAP migration templates?**  
+Here. This repository has 75 free SAP migration templates in Excel, each mapped to its standard BAPI, MIT licence, no signup. Browse them online at [postnow.ai/templates](https://postnow.ai/templates/).
+
+**Are there S/4HANA templates for data migration?**  
+Yes. Every template here is built for SAP S/4HANA and SAP ECC and uses the standard BAPI for its object, so it fits S/4HANA data migration and ongoing data loads.
+
+**What is an SAP data migration template?**  
+An Excel file whose columns match the SAP fields of one object, such as material master or purchase order, with mandatory fields marked and formats fixed. You fill it, then load it into SAP.
+
+**What is the best LSMW alternative for S/4HANA?**  
+For loads from Excel, PostNow.ai: it posts directly through standard BAPIs or recorded transactions from inside Excel, with row-by-row validation. SAP's own option for initial migration is the S/4HANA Migration Cockpit.
+
+**How do I upload material master data from Excel to SAP?**  
+Use the MM01 template in [master-data](master-data/), fill one row per material, then post it with PostNow.ai, LSMW or the Migration Cockpit. Guide: [postnow.ai/mass-create-materials-mm01](https://postnow.ai/mass-create-materials-mm01).
 
 **What is the best way to upload data from Excel to SAP?**  
 Use a template whose columns match the SAP structure, check it before loading, then post it with a standard BAPI, LSMW or the S/4HANA Migration Cockpit. These templates give you the first step for 75 common objects.
