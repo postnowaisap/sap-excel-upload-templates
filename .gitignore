@@ -1,0 +1,10 @@
+~$*.xlsx
+Thumbs.db
+desktop.ini
+*.py
+*.js
+*.ts
+*.cs
+*.json
+*.env
+*.config
