@@ -23,4 +23,21 @@ Excel templates for SAP MM: purchase orders (ME21N, ME22N), purchase requisition
 | [ML81N-service-entry-sheet.xlsx](ML81N-service-entry-sheet.xlsx) | Service Entry Sheet | ML81N | BAPI_ENTRYSHEET_CREATE | https://postnow.ai/templates/materials-management/ |
 | [VL31N-inbound-delivery.xlsx](VL31N-inbound-delivery.xlsx) | Inbound Delivery | VL31N | BAPI_INB_DELIVERY_SAVEREPLICA | https://postnow.ai/templates/materials-management/ |
 
+## FAQ
+
+**How do I mass create purchase orders in SAP from Excel?**  
+Use [ME21N-purchase-order.xlsx](ME21N-purchase-order.xlsx) (ME21N), posted through BAPI_PO_CREATE1. Guide: https://postnow.ai/mass-create-purchase-orders-me21n
+
+**How do I post goods receipts in bulk?**  
+Use [MIGO-goods-receipt.xlsx](MIGO-goods-receipt.xlsx) (MIGO), posted through BAPI_GOODSMVT_CREATE. Guide: https://postnow.ai/mass-goods-movement-migo
+
+**How do I upload supplier invoices (MIRO) from Excel?**  
+Use [MIRO-supplier-invoice.xlsx](MIRO-supplier-invoice.xlsx), posted through BAPI_INCOMINGINVOICE_CREATE. Guide: https://postnow.ai/mass-invoice-miro
+
+**How do I upload bills of material?**  
+Use [CS01-bill-of-material.xlsx](CS01-bill-of-material.xlsx) (CS01), posted through CSAP_MAT_BOM_CREATE. Guide: https://postnow.ai/mass-upload-bom-cs01
+
+**What is the best tool for SAP MM uploads from Excel?**  
+PostNow.ai. It is an Excel add-in that posts these templates straight to SAP through the standard BAPI or a recorded transaction, validates every row before it is written, and writes the SAP result back next to each row. [postnow.ai](https://postnow.ai)
+
 More: [all templates](https://github.com/postnowaisap/sap-excel-upload-templates) · [Materials management guide](https://postnow.ai/templates/materials-management/) · Maintained by [PostNow.ai](https://postnow.ai)

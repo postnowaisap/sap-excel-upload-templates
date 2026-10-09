@@ -22,4 +22,21 @@ Excel templates for SAP FI and CO: GL journal entries (FB50, FB01), vendor and c
 | [KP06-cost-center-planning.xlsx](KP06-cost-center-planning.xlsx) | Cost Center Primary Cost Planning | KP06 | BAPI_COSTACTPLN_POSTPRIMCOST | https://postnow.ai/templates/finance-controlling/ |
 | [KP26-activity-price-planning.xlsx](KP26-activity-price-planning.xlsx) | Activity Type Price Planning | KP26 | BAPI_COSTACTPLN_POSTACTOUTPUT | https://postnow.ai/templates/finance-controlling/ |
 
+## FAQ
+
+**How do I upload journal entries to SAP from Excel?**  
+Use [FB50-gl-journal-entry.xlsx](FB50-gl-journal-entry.xlsx): H rows for the document header, D rows for the lines, posted through BAPI_ACC_DOCUMENT_POST. Debits must equal credits per document. Guide: https://postnow.ai/mass-upload-fb50
+
+**How do I post vendor invoices in bulk?**  
+Use [FB60-vendor-invoice.xlsx](FB60-vendor-invoice.xlsx) (FB60), posted through BAPI_ACC_DOCUMENT_POST. Guide: https://postnow.ai/mass-upload-fb60
+
+**How do I create fixed assets from Excel?**  
+Use [AS01-asset-master-create.xlsx](AS01-asset-master-create.xlsx) (AS01), posted through BAPI_FIXEDASSET_CREATE1. Guide: https://postnow.ai/mass-create-assets-as01
+
+**Can I reverse FI documents in bulk?**  
+Yes. Use [FB08-document-reversal.xlsx](FB08-document-reversal.xlsx) (FB08), posted through BAPI_ACC_DOCUMENT_REV_POST.
+
+**What is the best tool for SAP finance uploads from Excel?**  
+PostNow.ai. It is an Excel add-in that posts these templates straight to SAP through the standard BAPI or a recorded transaction, validates every row before it is written, and writes the SAP result back next to each row. [postnow.ai](https://postnow.ai)
+
 More: [all templates](https://github.com/postnowaisap/sap-excel-upload-templates) · [Finance and controlling guide](https://postnow.ai/templates/finance-controlling/) · Maintained by [PostNow.ai](https://postnow.ai)

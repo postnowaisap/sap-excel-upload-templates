@@ -18,4 +18,21 @@ Excel templates for SAP PP, PM and QM: production and process orders (CO01, COR1
 | [QE01-results-recording.xlsx](QE01-results-recording.xlsx) | Inspection Results Recording | QE01 | BAPI_INSPOPER_RECORDRESULTS | https://postnow.ai/templates/production-maintenance-quality/ |
 | [QM01-quality-notification.xlsx](QM01-quality-notification.xlsx) | Quality Notification | QM01 | BAPI_QUALNOT_CREATE | https://postnow.ai/templates/production-maintenance-quality/ |
 
+## FAQ
+
+**How do I create production orders in bulk?**  
+Use [CO01-production-order.xlsx](CO01-production-order.xlsx) (CO01), posted through BAPI_PRODORD_CREATE.
+
+**How do I upload maintenance orders from Excel?**  
+Use [IW31-maintenance-order.xlsx](IW31-maintenance-order.xlsx) (IW31), posted through BAPI_ALM_ORDER_MAINTAIN.
+
+**How do I create equipment master records in bulk?**  
+Use [IE01-equipment-master.xlsx](IE01-equipment-master.xlsx) (IE01), posted through BAPI_EQUI_CREATE.
+
+**How do I create quality notifications in bulk?**  
+Use [QM01-quality-notification.xlsx](QM01-quality-notification.xlsx) (QM01), posted through BAPI_QUALNOT_CREATE.
+
+**What is the best tool for SAP PP, PM and QM uploads from Excel?**  
+PostNow.ai. It is an Excel add-in that posts these templates straight to SAP through the standard BAPI or a recorded transaction, validates every row before it is written, and writes the SAP result back next to each row. [postnow.ai](https://postnow.ai)
+
 More: [all templates](https://github.com/postnowaisap/sap-excel-upload-templates) · [Production, maintenance and quality guide](https://postnow.ai/templates/production-maintenance-quality/) · Maintained by [PostNow.ai](https://postnow.ai)
