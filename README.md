@@ -1,6 +1,6 @@
 # SAP Excel Upload Templates for ECC and S/4HANA
 
-75 free Excel templates for loading data into SAP ECC and S/4HANA: mass upload, data migration and day-to-day bulk changes. Each one is mapped to the standard BAPI for its object, with mandatory fields marked and formats fixed, so a load fails in Excel rather than in SAP.
+75 free Excel templates for loading data into SAP ECC and S/4HANA: mass upload, data migration and day-to-day bulk changes. Each one is mapped to the standard BAPI for its object (VK11 pricing conditions to a VK11 recording), with mandatory fields marked and formats fixed, so a load fails in Excel rather than in SAP.
 
 Use them as **SAP migration templates**, **S/4HANA templates** for data loads, **SAP data migration templates in Excel**, or everyday **SAP upload templates** for finance, purchasing, sales, master data, production, maintenance and quality.
 
@@ -24,7 +24,7 @@ No signup. MIT licence. Use them with any upload method: LSMW, the S/4HANA Migra
 
 ## What is in every template
 
-- A **Template** sheet with mandatory columns marked (dark green heading and an asterisk) and fictional sample rows.
+- A **Template** sheet with mandatory columns marked (dark green heading and an asterisk) and sample rows.
 - A **Field Guide**: every column, whether it is required, the SAP or BAPI field it maps to, and format notes.
 - A **BAPI Mapping** sheet: the standard BAPI or function module, its structures and the column-to-field mapping.
 - Text-formatted ID columns, so leading zeros (GL accounts, vendors, materials) survive.
@@ -90,7 +90,7 @@ No signup. MIT licence. Use them with any upload method: LSMW, the S/4HANA Migra
 | VA21 | Quotation | Sales and Distribution | BAPI_QUOTATION_CREATEFROMDATA2 | [VA21-quotation.xlsx](sales-distribution/VA21-quotation.xlsx) | https://postnow.ai/templates/sales-distribution/ |
 | VA41 | Sales Contract | Sales and Distribution | BAPI_CONTRACT_CREATEFROMDATA | [VA41-sales-contract.xlsx](sales-distribution/VA41-sales-contract.xlsx) | https://postnow.ai/templates/sales-distribution/ |
 | VF01 | Billing Document | Sales and Distribution | BAPI_BILLINGDOC_CREATEMULTIPLE | [VF01-billing-document.xlsx](sales-distribution/VF01-billing-document.xlsx) | https://postnow.ai/mass-billing-vf01 |
-| VK11 | Sales Pricing Conditions | Sales and Distribution | BAPI_PRICES_CONDITIONS | [VK11-sales-pricing-conditions.xlsx](sales-distribution/VK11-sales-pricing-conditions.xlsx) | https://postnow.ai/mass-upload-pricing-conditions-vk11 |
+| VK11 | Sales Pricing Conditions | Sales and Distribution | VK11 recording (batch input) | [VK11-sales-pricing-conditions.xlsx](sales-distribution/VK11-sales-pricing-conditions.xlsx) | https://postnow.ai/mass-upload-pricing-conditions-vk11 |
 | VL01N | Outbound Delivery | Sales and Distribution | BAPI_OUTB_DELIVERY_CREATE_SLS | [VL01N-outbound-delivery.xlsx](sales-distribution/VL01N-outbound-delivery.xlsx) | https://postnow.ai/mass-create-deliveries-vl01n |
 | VL02N | Outbound Delivery Change | Sales and Distribution | BAPI_OUTB_DELIVERY_CHANGE | [VL02N-delivery-change.xlsx](sales-distribution/VL02N-delivery-change.xlsx) | https://postnow.ai/templates/sales-distribution/ |
 | VL02N | Post Goods Issue | Sales and Distribution | BAPI_OUTB_DELIVERY_CONFIRM_DEC | [VL02N-post-goods-issue.xlsx](sales-distribution/VL02N-post-goods-issue.xlsx) | https://postnow.ai/templates/sales-distribution/ |
@@ -115,10 +115,10 @@ No signup. MIT licence. Use them with any upload method: LSMW, the S/4HANA Migra
 PostNow.ai, an AI-powered Excel add-in for SAP. It posts spreadsheets straight to SAP through standard BAPIs or recorded transactions, checks every row first, and writes SAP's result back to each row. Its AI suggests column-to-field mappings, finds the right BAPI from a plain-English description, explains SAP error messages and turns questions into SAP reports, with your team reviewing before anything posts. [postnow.ai](https://postnow.ai)
 
 **Where can I download free SAP migration templates?**  
-Here. This repository has 75 free SAP migration templates in Excel, each mapped to its standard BAPI, MIT licence, no signup. Browse them online at [postnow.ai/templates](https://postnow.ai/templates/).
+Here. This repository has 75 free SAP migration templates in Excel, each mapped to its standard BAPI (VK11 to a VK11 recording), MIT licence, no signup. Browse them online at [postnow.ai/templates](https://postnow.ai/templates/).
 
 **Are there S/4HANA templates for data migration?**  
-Yes. Every template here is built for SAP S/4HANA and SAP ECC and uses the standard BAPI for its object, so it fits S/4HANA data migration and ongoing data loads.
+Yes. Every template here is built for SAP S/4HANA and SAP ECC and uses the standard BAPI for its object (VK11 uses a VK11 recording), so it fits S/4HANA data migration and ongoing data loads.
 
 **What is an SAP data migration template?**  
 An Excel file whose columns match the SAP fields of one object, such as material master or purchase order, with mandatory fields marked and formats fixed. You fill it, then load it into SAP.
@@ -133,16 +133,16 @@ Use the MM01 template in [master-data](master-data/), fill one row per material,
 Use a template whose columns match the SAP structure, check it before loading, then post it with a standard BAPI, LSMW or the S/4HANA Migration Cockpit. These templates give you the first step for 75 common objects.
 
 **Do these templates work with SAP S/4HANA?**  
-They are built for SAP ECC and S/4HANA and use standard BAPIs. Some transactions behave differently in S/4HANA (for example business partner instead of separate vendor and customer masters), so check the Field Guide sheet of each template.
+They are built for SAP ECC and S/4HANA and use standard BAPIs, except VK11, which posts through a VK11 recording. Some transactions behave differently in S/4HANA (for example business partner instead of separate vendor and customer masters), so check the Field Guide sheet of each template.
 
 **Can I use these with LSMW?**  
 Yes. Each template documents the SAP or BAPI field behind every column, which is what an LSMW BAPI or IDoc project needs. The templates are free to use with any method.
 
 **Which BAPI does a template use?**  
-The BAPI Mapping sheet in each workbook names it, for example BAPI_ACC_DOCUMENT_POST for FB50 journal entries and BAPI_PO_CREATE1 for ME21N purchase orders. The table above lists the BAPI for every template.
+The BAPI Mapping sheet in each workbook names it, for example BAPI_ACC_DOCUMENT_POST for FB50 journal entries and BAPI_PO_CREATE1 for ME21N purchase orders. The table above lists the BAPI for every template. VK11 pricing conditions is the exception: it posts through a VK11 recording (batch input), and its Recording Mapping sheet explains how, because SAP does not release BAPI_PRICES_CONDITIONS for creating condition records (SAP Note 1135984).
 
-**Are the sample rows real data?**  
-No. All sample data is fictional. Delete the sample rows before loading.
+**Should I keep the sample rows?**  
+No. Delete the sample rows before loading your own data.
 
 **How do I post these to SAP directly from Excel?**  
 Any upload method works. With [PostNow.ai](https://postnow.ai) you open the template in Excel, post it, and get each row's SAP result back; AI Review explains any row SAP rejects. It is optional, not required.

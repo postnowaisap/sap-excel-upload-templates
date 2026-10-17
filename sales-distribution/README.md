@@ -1,6 +1,6 @@
 # Sales and distribution templates
 
-Excel templates for SAP SD: sales orders, returns and credit memo requests (VA01, VA02), inquiries, quotations, contracts, outbound deliveries and goods issue (VL01N, VL02N), shipments, billing (VF01) and pricing conditions (VK11). Each workbook is mapped to the standard SAP BAPI, with mandatory fields marked and a field guide for every column. Free, MIT licence, for SAP ECC and S/4HANA.
+Excel templates for SAP SD: sales orders, returns and credit memo requests (VA01, VA02), inquiries, quotations, contracts, outbound deliveries and goods issue (VL01N, VL02N), shipments, billing (VF01) and pricing conditions (VK11). Each workbook is mapped to the standard SAP BAPI (VK11 pricing conditions to a VK11 recording), with mandatory fields marked and a field guide for every column. Free, MIT licence, for SAP ECC and S/4HANA.
 
 | File | Object | T-code | BAPI | Field guide |
 |---|---|---|---|---|
@@ -12,7 +12,7 @@ Excel templates for SAP SD: sales orders, returns and credit memo requests (VA01
 | [VA21-quotation.xlsx](VA21-quotation.xlsx) | Quotation | VA21 | BAPI_QUOTATION_CREATEFROMDATA2 | https://postnow.ai/templates/sales-distribution/ |
 | [VA41-sales-contract.xlsx](VA41-sales-contract.xlsx) | Sales Contract | VA41 | BAPI_CONTRACT_CREATEFROMDATA | https://postnow.ai/templates/sales-distribution/ |
 | [VF01-billing-document.xlsx](VF01-billing-document.xlsx) | Billing Document | VF01 | BAPI_BILLINGDOC_CREATEMULTIPLE | https://postnow.ai/mass-billing-vf01 |
-| [VK11-sales-pricing-conditions.xlsx](VK11-sales-pricing-conditions.xlsx) | Sales Pricing Conditions | VK11 | BAPI_PRICES_CONDITIONS | https://postnow.ai/mass-upload-pricing-conditions-vk11 |
+| [VK11-sales-pricing-conditions.xlsx](VK11-sales-pricing-conditions.xlsx) | Sales Pricing Conditions | VK11 | VK11 recording (batch input) | https://postnow.ai/mass-upload-pricing-conditions-vk11 |
 | [VL01N-outbound-delivery.xlsx](VL01N-outbound-delivery.xlsx) | Outbound Delivery | VL01N | BAPI_OUTB_DELIVERY_CREATE_SLS | https://postnow.ai/mass-create-deliveries-vl01n |
 | [VL02N-delivery-change.xlsx](VL02N-delivery-change.xlsx) | Outbound Delivery Change | VL02N | BAPI_OUTB_DELIVERY_CHANGE | https://postnow.ai/templates/sales-distribution/ |
 | [VL02N-post-goods-issue.xlsx](VL02N-post-goods-issue.xlsx) | Post Goods Issue | VL02N | BAPI_OUTB_DELIVERY_CONFIRM_DEC | https://postnow.ai/templates/sales-distribution/ |
@@ -24,7 +24,7 @@ Excel templates for SAP SD: sales orders, returns and credit memo requests (VA01
 No. A credit block is a successful row. The order exists and is waiting for a decision. Treating blocks as failures and re-running creates duplicates. The VA01 template is [VA01-sales-order.xlsx](VA01-sales-order.xlsx), posting through BAPI_SALESORDER_CREATEFROMDAT2. Guide: https://postnow.ai/mass-create-sales-orders-va01
 
 **How do I load pricing conditions without conflicts?**  
-Use [VK11-sales-pricing-conditions.xlsx](VK11-sales-pricing-conditions.xlsx) (VK11, via BAPI_PRICES_CONDITIONS) and mind the dates: Validity periods for the same key must not overlap, or the record is rejected or one is silently chosen. Guide: https://postnow.ai/mass-upload-pricing-conditions-vk11
+Use [VK11-sales-pricing-conditions.xlsx](VK11-sales-pricing-conditions.xlsx) (VK11, posted through a VK11 recording) and mind the dates: SAP does not reject an overlapping validity period. For the same key it shortens the existing record without a message, splits it if the new record lies inside it, and warns that it will be deleted on save if the new record covers it completely. Sort the file by key and valid-from before you load. Guide: https://postnow.ai/mass-upload-pricing-conditions-vk11
 
 **Does a bulk delivery upload respect delivery blocks?**  
 Not automatically. This interface does not enforce a delivery block the way VL01N does. Filter blocked orders out before you load. Template: [VL01N-outbound-delivery.xlsx](VL01N-outbound-delivery.xlsx), via BAPI_OUTB_DELIVERY_CREATE_SLS. Guide: https://postnow.ai/mass-create-deliveries-vl01n
